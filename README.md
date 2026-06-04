@@ -115,11 +115,14 @@ retriever with one-line neighbor expansion. It checks:
 This is intentionally not an LLM benchmark yet. It is the citation-control layer
 that later LLM outputs must satisfy.
 
-The multi-document fixture currently exposes a useful failure mode: source
-document hit@k is 100.00%, but distractor leak rate@k is 35.00% and pass rate is
-25.00%. This means the baseline can find the right source document but still
-mixes in peer or sector distractor evidence. That is the next retrieval problem
-to reduce.
+The multi-document fixture originally exposed a useful failure mode: the
+baseline could find the right source document while still mixing in peer or
+sector distractor evidence. The current lightweight source-prior retriever
+improves that baseline to 87.50% line recall@k, 100.00% source document hit@k,
+5.00% distractor leak rate@k, and 50.00% pass rate.
+
+This is still not production RAG. It is a measurable retrieval-control baseline
+that makes the remaining failure visible before adding embeddings or LLM calls.
 
 ## Portfolio Signal
 
