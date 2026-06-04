@@ -42,6 +42,8 @@
       ],
       "line_recall": 1.0,
       "term_coverage": 1.0,
+      "source_hit": 1.0,
+      "distractor_leak_rate": 0.0,
       "passed": true
     },
     {
@@ -86,6 +88,8 @@
       ],
       "line_recall": 1.0,
       "term_coverage": 1.0,
+      "source_hit": 1.0,
+      "distractor_leak_rate": 0.0,
       "passed": true
     },
     {
@@ -118,6 +122,8 @@
       ],
       "line_recall": 1.0,
       "term_coverage": 1.0,
+      "source_hit": 1.0,
+      "distractor_leak_rate": 0.0,
       "passed": true
     },
     {
@@ -150,10 +156,14 @@
       ],
       "line_recall": 1.0,
       "term_coverage": 1.0,
+      "source_hit": 1.0,
+      "distractor_leak_rate": 0.0,
       "passed": true
     }
   ],
   "average_line_recall": 1.0,
   "average_term_coverage": 1.0,
+  "average_source_hit": 1.0,
+  "average_distractor_leak_rate": 0.0,
   "pass_rate": 1.0
 }
