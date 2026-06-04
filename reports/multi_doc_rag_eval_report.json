@@ -10,40 +10,40 @@
       ],
       "retrieved_lines": [
         {
+          "source": "multi_doc/north_river_target.md",
+          "line_number": 23,
+          "text": "Short-term debt: 18.5 bn",
+          "score": 0.45454545454545453
+        },
+        {
+          "source": "multi_doc/north_river_target.md",
+          "line_number": 22,
+          "text": "Total debt: 78.0 bn",
+          "score": 0.4
+        },
+        {
+          "source": "multi_doc/north_river_target.md",
+          "line_number": 24,
+          "text": "Cash: 12.0 bn",
+          "score": 0.4
+        },
+        {
           "source": "multi_doc/east_bay_peer.md",
           "line_number": 35,
           "text": "Liquidity pressure is manageable because cash exceeds short-term debt.",
           "score": 0.36363636363636365
         },
         {
-          "source": "multi_doc/east_bay_peer.md",
-          "line_number": 34,
-          "text": "The issuer has no material external guarantee exposure disclosed in this note.",
-          "score": 0.29090909090909095
-        },
-        {
-          "source": "multi_doc/city_utility_distractor.md",
-          "line_number": 22,
-          "text": "Short-term debt: 6.8 bn",
-          "score": 0.2727272727272727
-        },
-        {
-          "source": "multi_doc/east_bay_peer.md",
-          "line_number": 22,
-          "text": "Short-term debt: 9.0 bn",
-          "score": 0.2727272727272727
-        },
-        {
           "source": "multi_doc/north_river_target.md",
-          "line_number": 23,
-          "text": "Short-term debt: 18.5 bn",
-          "score": 0.2727272727272727
+          "line_number": 1,
+          "text": "# North River Infrastructure Group - Credit Note",
+          "score": 0.36363636363636365
         }
       ],
-      "line_recall": 0.5,
+      "line_recall": 1.0,
       "term_coverage": 1.0,
       "source_hit": 1.0,
-      "distractor_leak_rate": 0.8,
+      "distractor_leak_rate": 0.2,
       "passed": false
     },
     {
@@ -56,40 +56,40 @@
       ],
       "retrieved_lines": [
         {
-          "source": "multi_doc/city_utility_distractor.md",
-          "line_number": 31,
-          "text": "External guarantees are limited to one small environmental subsidiary.",
-          "score": 0.4
-        },
-        {
           "source": "multi_doc/north_river_target.md",
           "line_number": 1,
           "text": "# North River Infrastructure Group - Credit Note",
-          "score": 0.4
+          "score": 0.8
         },
         {
           "source": "multi_doc/north_river_target.md",
           "line_number": 3,
           "text": "Issuer: North River Infrastructure Group",
-          "score": 0.4
+          "score": 0.8
         },
         {
           "source": "multi_doc/north_river_target.md",
           "line_number": 10,
           "text": "North River Infrastructure Group operates toll roads, rail transit assets, and",
-          "score": 0.4
+          "score": 0.8
         },
         {
           "source": "multi_doc/north_river_target.md",
           "line_number": 36,
           "text": "Several subsidiaries provide external guarantees for affiliated infrastructure",
-          "score": 0.4
+          "score": 0.8
+        },
+        {
+          "source": "multi_doc/north_river_target.md",
+          "line_number": 4,
+          "text": "Rating: AAA",
+          "score": 0.7200000000000001
         }
       ],
       "line_recall": 0.5,
       "term_coverage": 0.6666666666666666,
       "source_hit": 1.0,
-      "distractor_leak_rate": 0.2,
+      "distractor_leak_rate": 0.0,
       "passed": false
     },
     {
@@ -104,38 +104,38 @@
           "source": "multi_doc/east_bay_peer.md",
           "line_number": 35,
           "text": "Liquidity pressure is manageable because cash exceeds short-term debt.",
-          "score": 0.5
+          "score": 0.7
         },
         {
           "source": "multi_doc/east_bay_peer.md",
           "line_number": 34,
           "text": "The issuer has no material external guarantee exposure disclosed in this note.",
-          "score": 0.4
-        },
-        {
-          "source": "multi_doc/city_utility_distractor.md",
-          "line_number": 22,
-          "text": "Short-term debt: 6.8 bn",
-          "score": 0.3
+          "score": 0.6000000000000001
         },
         {
           "source": "multi_doc/east_bay_peer.md",
           "line_number": 22,
           "text": "Short-term debt: 9.0 bn",
-          "score": 0.3
+          "score": 0.5
         },
         {
-          "source": "multi_doc/north_river_target.md",
+          "source": "multi_doc/east_bay_peer.md",
+          "line_number": 21,
+          "text": "Total debt: 54.0 bn",
+          "score": 0.44
+        },
+        {
+          "source": "multi_doc/east_bay_peer.md",
           "line_number": 23,
-          "text": "Short-term debt: 18.5 bn",
-          "score": 0.3
+          "text": "Cash: 15.5 bn",
+          "score": 0.44
         }
       ],
       "line_recall": 1.0,
       "term_coverage": 1.0,
       "source_hit": 1.0,
-      "distractor_leak_rate": 0.4,
-      "passed": false
+      "distractor_leak_rate": 0.0,
+      "passed": true
     },
     {
       "case_id": "harbor_city_grant_support",
@@ -150,31 +150,31 @@
           "source": "multi_doc/city_utility_distractor.md",
           "line_number": 1,
           "text": "# Harbor City Utility Services - Credit Note",
-          "score": 0.25
+          "score": 0.375
         },
         {
           "source": "multi_doc/city_utility_distractor.md",
           "line_number": 3,
           "text": "Issuer: Harbor City Utility Services",
-          "score": 0.25
+          "score": 0.375
         },
         {
           "source": "multi_doc/city_utility_distractor.md",
           "line_number": 10,
           "text": "Harbor City Utility Services operates water supply, wastewater treatment, and",
-          "score": 0.25
+          "score": 0.375
         },
         {
           "source": "multi_doc/city_utility_distractor.md",
           "line_number": 12,
           "text": "targeted government grants for environmental upgrades.",
-          "score": 0.25
+          "score": 0.375
         },
         {
           "source": "multi_doc/city_utility_distractor.md",
           "line_number": 33,
           "text": "Government grants support part of the wastewater upgrade program, but the note",
-          "score": 0.25
+          "score": 0.375
         }
       ],
       "line_recall": 1.0,
@@ -184,9 +184,9 @@
       "passed": true
     }
   ],
-  "average_line_recall": 0.75,
+  "average_line_recall": 0.875,
   "average_term_coverage": 0.9166666666666666,
   "average_source_hit": 1.0,
-  "average_distractor_leak_rate": 0.35000000000000003,
-  "pass_rate": 0.25
+  "average_distractor_leak_rate": 0.05,
+  "pass_rate": 0.5
 }
