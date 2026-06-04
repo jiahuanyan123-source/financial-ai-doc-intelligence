@@ -45,8 +45,9 @@ class RetrievalEvalTests(unittest.TestCase):
         report = evaluate_cases(MULTI_DOC_CASES, top_k=5)
 
         self.assertEqual(len(report.cases), 4)
-        self.assertGreaterEqual(report.average_source_hit, 0.5)
-        self.assertGreaterEqual(report.average_distractor_leak_rate, 0.0)
+        self.assertEqual(report.average_source_hit, 1.0)
+        self.assertLessEqual(report.average_distractor_leak_rate, 0.05)
+        self.assertGreaterEqual(report.pass_rate, 0.5)
         self.assertTrue(all(item.retrieved_lines for item in report.cases))
 
 
