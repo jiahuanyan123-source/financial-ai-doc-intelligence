@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Sequence
 
 from .analyzer import read_source
 from .model import SourceLine
@@ -82,3 +83,23 @@ def retrieve_lines(
                 scored_by_line[neighbor.number] = RetrievedLine(label, neighbor.number, neighbor.text, context_score)
 
     return sorted(scored_by_line.values(), key=lambda item: (-item.score, item.line_number))[:top_k]
+
+
+def retrieve_lines_from_sources(
+    sources: Sequence[tuple[str, str]],
+    query: str,
+    top_k: int = 5,
+    context_window: int = 1,
+) -> list[RetrievedLine]:
+    retrieved: list[RetrievedLine] = []
+    for source_label, source_path in sources:
+        retrieved.extend(
+            retrieve_lines(
+                source_path,
+                query,
+                top_k=top_k,
+                context_window=context_window,
+                source_label=source_label,
+            )
+        )
+    return sorted(retrieved, key=lambda item: (-item.score, item.source, item.line_number))[:top_k]
