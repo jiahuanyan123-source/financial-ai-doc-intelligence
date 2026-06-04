@@ -10,6 +10,7 @@ from finai_docintelligence.retrieval import retrieve_lines
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE = ROOT / "examples" / "sample_issuer_credit_note.md"
 CASES = ROOT / "examples" / "rag_eval_cases.json"
+MULTI_DOC_CASES = ROOT / "examples" / "multi_doc_rag_eval_cases.json"
 
 
 class RetrievalEvalTests(unittest.TestCase):
@@ -36,7 +37,17 @@ class RetrievalEvalTests(unittest.TestCase):
         self.assertEqual(len(report.cases), 4)
         self.assertGreaterEqual(report.average_line_recall, 1.0)
         self.assertGreaterEqual(report.average_term_coverage, 0.8)
+        self.assertEqual(report.average_source_hit, 1.0)
+        self.assertEqual(report.average_distractor_leak_rate, 0.0)
         self.assertEqual(report.pass_rate, 1.0)
+
+    def test_multi_doc_eval_reports_source_and_distractor_metrics(self) -> None:
+        report = evaluate_cases(MULTI_DOC_CASES, top_k=5)
+
+        self.assertEqual(len(report.cases), 4)
+        self.assertGreaterEqual(report.average_source_hit, 0.5)
+        self.assertGreaterEqual(report.average_distractor_leak_rate, 0.0)
+        self.assertTrue(all(item.retrieved_lines for item in report.cases))
 
 
 if __name__ == "__main__":
