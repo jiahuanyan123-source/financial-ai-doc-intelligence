@@ -51,12 +51,17 @@ python -m finai_docintelligence analyze examples/sample_issuer_credit_note.md --
 python -m finai_docintelligence eval-rag examples/rag_eval_cases.json --out reports/rag_eval_report.md --json reports/rag_eval_report.json
 ```
 
+```bash
+python -m finai_docintelligence eval-rag examples/multi_doc_rag_eval_cases.json --out reports/multi_doc_rag_eval_report.md --json reports/multi_doc_rag_eval_report.json
+```
+
 On macOS/Linux:
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests
 PYTHONPATH=src python -m finai_docintelligence analyze examples/sample_issuer_credit_note.md --out reports/sample_report.md --json reports/sample_report.json
 PYTHONPATH=src python -m finai_docintelligence eval-rag examples/rag_eval_cases.json --out reports/rag_eval_report.md --json reports/rag_eval_report.json
+PYTHONPATH=src python -m finai_docintelligence eval-rag examples/multi_doc_rag_eval_cases.json --out reports/multi_doc_rag_eval_report.md --json reports/multi_doc_rag_eval_report.json
 ```
 
 ## Project Structure
@@ -109,6 +114,12 @@ retriever with one-line neighbor expansion. It checks:
 
 This is intentionally not an LLM benchmark yet. It is the citation-control layer
 that later LLM outputs must satisfy.
+
+The multi-document fixture currently exposes a useful failure mode: source
+document hit@k is 100.00%, but distractor leak rate@k is 35.00% and pass rate is
+25.00%. This means the baseline can find the right source document but still
+mixes in peer or sector distractor evidence. That is the next retrieval problem
+to reduce.
 
 ## Portfolio Signal
 
