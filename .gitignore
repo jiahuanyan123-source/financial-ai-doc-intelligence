@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+reports/*.json
+!reports/sample_report.json
+!reports/rag_eval_report.json
+!reports/.gitkeep

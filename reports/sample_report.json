@@ -1,0 +1,165 @@
+{
+  "source_path": "examples\\sample_issuer_credit_note.md",
+  "fields": {
+    "issuer": {
+      "name": "issuer",
+      "value": "North River Infrastructure Group",
+      "unit": null,
+      "source_line": 3
+    },
+    "rating": {
+      "name": "rating",
+      "value": "AAA",
+      "unit": null,
+      "source_line": 4
+    },
+    "industry": {
+      "name": "industry",
+      "value": "Transportation Infrastructure",
+      "unit": null,
+      "source_line": 5
+    },
+    "ownership": {
+      "name": "ownership",
+      "value": "Provincial SOE",
+      "unit": null,
+      "source_line": 6
+    },
+    "revenue": {
+      "name": "revenue",
+      "value": 42.5,
+      "unit": "bn",
+      "source_line": 20
+    },
+    "ebitda": {
+      "name": "ebitda",
+      "value": 8.2,
+      "unit": "bn",
+      "source_line": 21
+    },
+    "total_debt": {
+      "name": "total_debt",
+      "value": 78.0,
+      "unit": "bn",
+      "source_line": 22
+    },
+    "short_term_debt": {
+      "name": "short_term_debt",
+      "value": 18.5,
+      "unit": "bn",
+      "source_line": 23
+    },
+    "cash": {
+      "name": "cash",
+      "value": 12.0,
+      "unit": "bn",
+      "source_line": 24
+    },
+    "operating_cash_flow": {
+      "name": "operating_cash_flow",
+      "value": 5.1,
+      "unit": "bn",
+      "source_line": 25
+    },
+    "capital_expenditure": {
+      "name": "capital_expenditure",
+      "value": 9.8,
+      "unit": "bn",
+      "source_line": 26
+    },
+    "interest_expense": {
+      "name": "interest_expense",
+      "value": 2.4,
+      "unit": "bn",
+      "source_line": 27
+    }
+  },
+  "metrics": {
+    "debt_to_ebitda": {
+      "name": "debt_to_ebitda",
+      "value": 9.51219512195122,
+      "unit": "x",
+      "formula": "total debt / EBITDA"
+    },
+    "cash_to_short_term_debt": {
+      "name": "cash_to_short_term_debt",
+      "value": 0.6486486486486487,
+      "unit": "x",
+      "formula": "cash / short-term debt"
+    },
+    "interest_coverage": {
+      "name": "interest_coverage",
+      "value": 3.4166666666666665,
+      "unit": "x",
+      "formula": "EBITDA / interest expense"
+    },
+    "debt_to_revenue": {
+      "name": "debt_to_revenue",
+      "value": 1.8352941176470587,
+      "unit": "x",
+      "formula": "total debt / revenue"
+    },
+    "free_cash_flow": {
+      "name": "free_cash_flow",
+      "value": -4.700000000000001,
+      "unit": "bn",
+      "formula": "operating cash flow - capital expenditure"
+    }
+  },
+  "risks": [
+    {
+      "severity": "high",
+      "category": "Leverage",
+      "message": "Debt/EBITDA is very high at 9.51x.",
+      "source_lines": []
+    },
+    {
+      "severity": "high",
+      "category": "Liquidity",
+      "message": "Cash covers only 0.65x of short-term debt.",
+      "source_lines": []
+    },
+    {
+      "severity": "medium",
+      "category": "Debt service",
+      "message": "Interest coverage is moderate at 3.42x.",
+      "source_lines": []
+    },
+    {
+      "severity": "medium",
+      "category": "Cash flow",
+      "message": "Free cash flow is negative at -4.70 bn.",
+      "source_lines": []
+    },
+    {
+      "severity": "medium",
+      "category": "Capital structure",
+      "message": "Perpetual debt appears in the financing structure.",
+      "source_lines": [
+        35
+      ]
+    },
+    {
+      "severity": "medium",
+      "category": "Contingent liability",
+      "message": "Guarantee exposure appears in the document.",
+      "source_lines": [
+        36
+      ]
+    },
+    {
+      "severity": "medium",
+      "category": "Cash flow",
+      "message": "Negative cash flow language appears in the document.",
+      "source_lines": [
+        32
+      ]
+    }
+  ],
+  "analyst_questions": [
+    "What committed bank lines or refinancing arrangements cover upcoming short-term debt?",
+    "Which capex projects are discretionary, and what is the expected funding mix?",
+    "What is the size, beneficiary, and maturity profile of external guarantees?",
+    "How should perpetual instruments be treated under the investor's internal leverage framework?"
+  ]
+}

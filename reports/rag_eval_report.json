@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "case_id": "liquidity_short_term_debt_cash",
+      "question": "What source lines show the issuer's short-term debt and cash position?",
+      "source": "sample_issuer_credit_note.md",
+      "expected_lines": [
+        23,
+        24
+      ],
+      "retrieved_lines": [
+        {
+          "line_number": 23,
+          "text": "Short-term debt: 18.5 bn",
+          "score": 0.3
+        },
+        {
+          "line_number": 22,
+          "text": "Total debt: 78.0 bn",
+          "score": 0.24
+        },
+        {
+          "line_number": 24,
+          "text": "Cash: 12.0 bn",
+          "score": 0.24
+        },
+        {
+          "line_number": 35,
+          "text": "The issuer uses perpetual debt instruments in part of its financing structure.",
+          "score": 0.2
+        },
+        {
+          "line_number": 36,
+          "text": "Several subsidiaries provide external guarantees for affiliated infrastructure",
+          "score": 0.16000000000000003
+        }
+      ],
+      "line_recall": 1.0,
+      "term_coverage": 1.0,
+      "passed": true
+    },
+    {
+      "case_id": "negative_free_cash_flow",
+      "question": "Where does the note explain negative free cash flow?",
+      "source": "sample_issuer_credit_note.md",
+      "expected_lines": [
+        32,
+        33
+      ],
+      "retrieved_lines": [
+        {
+          "line_number": 32,
+          "text": "Free cash flow remained negative because capital expenditure exceeded operating",
+          "score": 0.6666666666666666
+        },
+        {
+          "line_number": 31,
+          "text": "Debt growth accelerated after the start of the rail transit expansion plan.",
+          "score": 0.5333333333333333
+        },
+        {
+          "line_number": 33,
+          "text": "cash flow.",
+          "score": 0.5333333333333333
+        },
+        {
+          "line_number": 25,
+          "text": "Operating cash flow: 5.1 bn",
+          "score": 0.3333333333333333
+        },
+        {
+          "line_number": 24,
+          "text": "Cash: 12.0 bn",
+          "score": 0.26666666666666666
+        }
+      ],
+      "line_recall": 1.0,
+      "term_coverage": 1.0,
+      "passed": true
+    },
+    {
+      "case_id": "guarantee_exposure",
+      "question": "Which lines mention external guarantees?",
+      "source": "sample_issuer_credit_note.md",
+      "expected_lines": [
+        36,
+        37
+      ],
+      "retrieved_lines": [
+        {
+          "line_number": 36,
+          "text": "Several subsidiaries provide external guarantees for affiliated infrastructure",
+          "score": 0.5
+        },
+        {
+          "line_number": 35,
+          "text": "The issuer uses perpetual debt instruments in part of its financing structure.",
+          "score": 0.4
+        },
+        {
+          "line_number": 37,
+          "text": "companies.",
+          "score": 0.4
+        }
+      ],
+      "line_recall": 1.0,
+      "term_coverage": 1.0,
+      "passed": true
+    },
+    {
+      "case_id": "government_support",
+      "question": "Where is government support discussed?",
+      "source": "sample_issuer_credit_note.md",
+      "expected_lines": [
+        12,
+        13
+      ],
+      "retrieved_lines": [
+        {
+          "line_number": 12,
+          "text": "strategic importance to the local government and receives recurring government",
+          "score": 0.3333333333333333
+        },
+        {
+          "line_number": 13,
+          "text": "support for key projects.",
+          "score": 0.3333333333333333
+        },
+        {
+          "line_number": 11,
+          "text": "urban infrastructure projects in a provincial capital region. The issuer has",
+          "score": 0.26666666666666666
+        }
+      ],
+      "line_recall": 1.0,
+      "term_coverage": 1.0,
+      "passed": true
+    }
+  ],
+  "average_line_recall": 1.0,
+  "average_term_coverage": 1.0,
+  "pass_rate": 1.0
+}

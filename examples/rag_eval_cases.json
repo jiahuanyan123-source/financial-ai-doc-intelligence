@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "liquidity_short_term_debt_cash",
+      "source": "sample_issuer_credit_note.md",
+      "question": "What source lines show the issuer's short-term debt and cash position?",
+      "expected_lines": [23, 24],
+      "expected_terms": ["short-term debt", "cash"]
+    },
+    {
+      "id": "negative_free_cash_flow",
+      "source": "sample_issuer_credit_note.md",
+      "question": "Where does the note explain negative free cash flow?",
+      "expected_lines": [32, 33],
+      "expected_terms": ["negative", "capital expenditure", "cash flow"]
+    },
+    {
+      "id": "guarantee_exposure",
+      "source": "sample_issuer_credit_note.md",
+      "question": "Which lines mention external guarantees?",
+      "expected_lines": [36, 37],
+      "expected_terms": ["guarantees", "affiliated", "companies"]
+    },
+    {
+      "id": "government_support",
+      "source": "sample_issuer_credit_note.md",
+      "question": "Where is government support discussed?",
+      "expected_lines": [12, 13],
+      "expected_terms": ["government", "support", "projects"]
+    }
+  ]
+}
