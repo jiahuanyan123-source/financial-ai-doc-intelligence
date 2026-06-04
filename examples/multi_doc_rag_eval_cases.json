@@ -1,0 +1,65 @@
+{
+  "documents": [
+    {
+      "id": "north_river",
+      "path": "multi_doc/north_river_target.md",
+      "role": "target"
+    },
+    {
+      "id": "east_bay_peer",
+      "path": "multi_doc/east_bay_peer.md",
+      "role": "peer_distractor"
+    },
+    {
+      "id": "harbor_city_utility",
+      "path": "multi_doc/city_utility_distractor.md",
+      "role": "sector_distractor"
+    }
+  ],
+  "cases": [
+    {
+      "id": "north_river_liquidity",
+      "question": "Which source lines show North River's short-term debt and cash position?",
+      "source": "multi_doc/north_river_target.md",
+      "expected_lines": [23, 24],
+      "expected_terms": ["short-term debt", "cash"],
+      "forbidden_sources": [
+        "multi_doc/east_bay_peer.md",
+        "multi_doc/city_utility_distractor.md"
+      ]
+    },
+    {
+      "id": "north_river_external_guarantees",
+      "question": "Where does North River disclose external guarantees?",
+      "source": "multi_doc/north_river_target.md",
+      "expected_lines": [36, 37],
+      "expected_terms": ["external guarantees", "affiliated", "companies"],
+      "forbidden_sources": [
+        "multi_doc/east_bay_peer.md",
+        "multi_doc/city_utility_distractor.md"
+      ]
+    },
+    {
+      "id": "east_bay_liquidity_comparison",
+      "question": "Which lines show that East Bay cash exceeds short-term debt?",
+      "source": "multi_doc/east_bay_peer.md",
+      "expected_lines": [35],
+      "expected_terms": ["cash", "exceeds", "short-term debt"],
+      "forbidden_sources": [
+        "multi_doc/north_river_target.md",
+        "multi_doc/city_utility_distractor.md"
+      ]
+    },
+    {
+      "id": "harbor_city_grant_support",
+      "question": "Which source lines discuss Harbor City's government grants?",
+      "source": "multi_doc/city_utility_distractor.md",
+      "expected_lines": [12, 33],
+      "expected_terms": ["government grants", "wastewater", "upgrade"],
+      "forbidden_sources": [
+        "multi_doc/north_river_target.md",
+        "multi_doc/east_bay_peer.md"
+      ]
+    }
+  ]
+}

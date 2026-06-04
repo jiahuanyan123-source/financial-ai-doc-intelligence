@@ -71,6 +71,11 @@ financial-ai-doc-intelligence/
     report.py
     retrieval.py
   examples/
+    multi_doc/
+      city_utility_distractor.md
+      east_bay_peer.md
+      north_river_target.md
+    multi_doc_rag_eval_cases.json
     rag_eval_cases.json
     sample_issuer_credit_note.md
   reports/
