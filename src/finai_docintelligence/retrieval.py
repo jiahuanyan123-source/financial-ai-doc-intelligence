@@ -53,6 +53,14 @@ def score_line(query_tokens: set[str], line: SourceLine) -> float:
     return len(overlap) / len(query_tokens)
 
 
+def score_source_prior(query_tokens: set[str], source_label: str) -> float:
+    source_tokens = tokenize(source_label)
+    if not query_tokens or not source_tokens:
+        return 0.0
+    overlap = query_tokens & source_tokens
+    return len(overlap) / len(query_tokens)
+
+
 def retrieve_lines(
     source_path: str,
     query: str,
@@ -92,14 +100,18 @@ def retrieve_lines_from_sources(
     context_window: int = 1,
 ) -> list[RetrievedLine]:
     retrieved: list[RetrievedLine] = []
+    query_tokens = tokenize(query)
     for source_label, source_path in sources:
+        source_prior = score_source_prior(query_tokens, source_label)
+        source_results = retrieve_lines(
+            source_path,
+            query,
+            top_k=top_k,
+            context_window=context_window,
+            source_label=source_label,
+        )
         retrieved.extend(
-            retrieve_lines(
-                source_path,
-                query,
-                top_k=top_k,
-                context_window=context_window,
-                source_label=source_label,
-            )
+            RetrievedLine(item.source, item.line_number, item.text, item.score + source_prior)
+            for item in source_results
         )
     return sorted(retrieved, key=lambda item: (-item.score, item.source, item.line_number))[:top_k]
