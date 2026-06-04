@@ -8,6 +8,8 @@ It is a citation-control test, not an LLM quality claim.
 - Cases: 4
 - Average line recall@k: 100.00%
 - Average expected-term coverage@k: 100.00%
+- Average source document hit@k: 100.00%
+- Average distractor leak rate@k: 0.00%
 - Pass rate: 100.00%
 
 ## Cases
@@ -19,6 +21,8 @@ Question: What source lines show the issuer's short-term debt and cash position?
 - Expected lines: 23, 24
 - Line recall@k: 100.00%
 - Expected-term coverage@k: 100.00%
+- Source document hit@k: 100.00%
+- Distractor leak rate@k: 0.00%
 
 | Rank | Source | Line | Score | Text |
 | ---: | --- | ---: | ---: | --- |
@@ -35,6 +39,8 @@ Question: Where does the note explain negative free cash flow?
 - Expected lines: 32, 33
 - Line recall@k: 100.00%
 - Expected-term coverage@k: 100.00%
+- Source document hit@k: 100.00%
+- Distractor leak rate@k: 0.00%
 
 | Rank | Source | Line | Score | Text |
 | ---: | --- | ---: | ---: | --- |
@@ -51,6 +57,8 @@ Question: Which lines mention external guarantees?
 - Expected lines: 36, 37
 - Line recall@k: 100.00%
 - Expected-term coverage@k: 100.00%
+- Source document hit@k: 100.00%
+- Distractor leak rate@k: 0.00%
 
 | Rank | Source | Line | Score | Text |
 | ---: | --- | ---: | ---: | --- |
@@ -65,6 +73,8 @@ Question: Where is government support discussed?
 - Expected lines: 12, 13
 - Line recall@k: 100.00%
 - Expected-term coverage@k: 100.00%
+- Source document hit@k: 100.00%
+- Distractor leak rate@k: 0.00%
 
 | Rank | Source | Line | Score | Text |
 | ---: | --- | ---: | ---: | --- |
