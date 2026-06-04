@@ -48,6 +48,8 @@ def main(argv: list[str] | None = None) -> int:
             "Summary: "
             f"line_recall={report.average_line_recall:.2%}, "
             f"term_coverage={report.average_term_coverage:.2%}, "
+            f"source_hit={report.average_source_hit:.2%}, "
+            f"distractor_leak={report.average_distractor_leak_rate:.2%}, "
             f"pass_rate={report.pass_rate:.2%}"
         )
         return 0
