@@ -79,6 +79,7 @@ financial-ai-doc-intelligence/
     test_analyzer.py
   docs/
     lesson_01.md
+    multi_doc_eval_checklist.md
 ```
 
 ## Roadmap
@@ -89,6 +90,8 @@ financial-ai-doc-intelligence/
 - v3: add local embeddings and RAG over multi-document issuer packages.
 - v4: add LLM-based report drafting with strict citation validation.
 - v5: add an analyst-in-the-loop review UI.
+
+Next implementation checklist: [docs/multi_doc_eval_checklist.md](docs/multi_doc_eval_checklist.md).
 
 ## Current Evaluation Baseline
 
