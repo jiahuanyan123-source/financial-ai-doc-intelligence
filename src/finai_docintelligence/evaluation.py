@@ -57,7 +57,7 @@ def load_cases(path: str | Path) -> list[EvalCase]:
 
 
 def evaluate_case(case: EvalCase, top_k: int = 5) -> EvalCaseResult:
-    retrieved = tuple(retrieve_lines(case.source_path, case.question, top_k=top_k))
+    retrieved = tuple(retrieve_lines(case.source_path, case.question, top_k=top_k, source_label=case.source_label))
     retrieved_line_numbers = {item.line_number for item in retrieved}
     expected_line_numbers = set(case.expected_lines)
     line_recall = len(expected_line_numbers & retrieved_line_numbers) / len(expected_line_numbers)
@@ -123,12 +123,12 @@ def render_eval_markdown(report: EvalReport) -> str:
                 f"- Line recall@k: {result.line_recall:.2%}",
                 f"- Expected-term coverage@k: {result.term_coverage:.2%}",
                 "",
-                "| Rank | Line | Score | Text |",
-                "| ---: | ---: | ---: | --- |",
+                "| Rank | Source | Line | Score | Text |",
+                "| ---: | --- | ---: | ---: | --- |",
             ]
         )
         for rank, item in enumerate(result.retrieved_lines, start=1):
-            lines.append(f"| {rank} | {item.line_number} | {item.score:.2f} | {item.text} |")
+            lines.append(f"| {rank} | {item.source} | {item.line_number} | {item.score:.2f} | {item.text} |")
         lines.append("")
 
     lines.extend(

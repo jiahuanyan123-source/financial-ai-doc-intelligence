@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from pathlib import Path
 
 from .analyzer import read_source
 from .model import SourceLine
@@ -33,6 +34,7 @@ STOP_WORDS = {
 
 @dataclass(frozen=True)
 class RetrievedLine:
+    source: str
     line_number: int
     text: str
     score: float
@@ -50,14 +52,21 @@ def score_line(query_tokens: set[str], line: SourceLine) -> float:
     return len(overlap) / len(query_tokens)
 
 
-def retrieve_lines(source_path: str, query: str, top_k: int = 5, context_window: int = 1) -> list[RetrievedLine]:
+def retrieve_lines(
+    source_path: str,
+    query: str,
+    top_k: int = 5,
+    context_window: int = 1,
+    source_label: str | None = None,
+) -> list[RetrievedLine]:
+    label = source_label or Path(source_path).name
     query_tokens = tokenize(query)
     lines = read_source(source_path)
     scored_by_line: dict[int, RetrievedLine] = {}
     for line in lines:
         score = score_line(query_tokens, line)
         if score > 0:
-            scored_by_line[line.number] = RetrievedLine(line.number, line.text, score)
+            scored_by_line[line.number] = RetrievedLine(label, line.number, line.text, score)
 
     line_lookup = {line.number: line for line in lines}
     for seed in list(scored_by_line.values()):
@@ -70,6 +79,6 @@ def retrieve_lines(source_path: str, query: str, top_k: int = 5, context_window:
             context_score = seed.score * 0.8
             current = scored_by_line.get(neighbor.number)
             if current is None or context_score > current.score:
-                scored_by_line[neighbor.number] = RetrievedLine(neighbor.number, neighbor.text, context_score)
+                scored_by_line[neighbor.number] = RetrievedLine(label, neighbor.number, neighbor.text, context_score)
 
     return sorted(scored_by_line.values(), key=lambda item: (-item.score, item.line_number))[:top_k]

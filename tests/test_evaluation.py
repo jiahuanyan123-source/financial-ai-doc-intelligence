@@ -20,6 +20,16 @@ class RetrievalEvalTests(unittest.TestCase):
         self.assertIn(23, line_numbers)
         self.assertIn(24, line_numbers)
 
+    def test_retrieval_result_carries_source_label(self) -> None:
+        results = retrieve_lines(
+            str(SAMPLE),
+            "short-term debt and cash position",
+            top_k=1,
+            source_label="sample_issuer_credit_note.md",
+        )
+
+        self.assertEqual(results[0].source, "sample_issuer_credit_note.md")
+
     def test_rag_eval_baseline_passes_sample_cases(self) -> None:
         report = evaluate_cases(CASES, top_k=5)
 
