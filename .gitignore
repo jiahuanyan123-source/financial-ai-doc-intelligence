@@ -10,4 +10,5 @@ build/
 reports/*.json
 !reports/sample_report.json
 !reports/rag_eval_report.json
+!reports/multi_doc_rag_eval_report.json
 !reports/.gitkeep
