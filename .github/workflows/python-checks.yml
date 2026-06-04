@@ -26,3 +26,6 @@ jobs:
 
       - name: Run RAG retrieval eval
         run: PYTHONPATH=src python -m finai_docintelligence eval-rag examples/rag_eval_cases.json --out reports/rag_eval_report.md --json reports/rag_eval_report.json
+
+      - name: Run multi-document RAG retrieval eval
+        run: PYTHONPATH=src python -m finai_docintelligence eval-rag examples/multi_doc_rag_eval_cases.json --out reports/multi_doc_rag_eval_report.md --json reports/multi_doc_rag_eval_report.json
