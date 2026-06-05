@@ -124,6 +124,8 @@ improves that baseline to 87.50% line recall@k, 100.00% source document hit@k,
 This is still not production RAG. It is a measurable retrieval-control baseline
 that makes the remaining failure visible before adding embeddings or LLM calls.
 
+Comparison table: [reports/retrieval_comparison.md](reports/retrieval_comparison.md).
+
 ## Portfolio Signal
 
 This project is designed to show:
