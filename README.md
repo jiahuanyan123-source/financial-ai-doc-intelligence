@@ -125,6 +125,7 @@ This is still not production RAG. It is a measurable retrieval-control baseline
 that makes the remaining failure visible before adding embeddings or LLM calls.
 
 Comparison table: [reports/retrieval_comparison.md](reports/retrieval_comparison.md).
+Embedding comparison plan: [docs/embedding_retrieval_comparison_plan.md](docs/embedding_retrieval_comparison_plan.md).
 
 ## Portfolio Signal
 
