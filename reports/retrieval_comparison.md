@@ -46,3 +46,5 @@ PYTHONPATH=src python -m unittest discover -s tests
 Implement local embedding retrieval only as a controlled comparison. It should
 keep the same fixture, top-k, and metrics so the result is comparable with the
 two deterministic baselines above.
+
+Implementation plan: [docs/embedding_retrieval_comparison_plan.md](../docs/embedding_retrieval_comparison_plan.md).
