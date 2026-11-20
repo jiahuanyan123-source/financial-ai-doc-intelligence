@@ -140,7 +140,7 @@ def _finalize(root: Path, checks: list[dict[str, Any]]) -> dict[str, Any]:
     failures = [check for check in checks if check["status"] != "pass"]
     return {
         "status": "pass" if not failures else "fail",
-        "repository": root.name,
+        "repository": "financial-ai-doc-intelligence",
         "check_count": len(checks),
         "failure_count": len(failures),
         "checks": checks,

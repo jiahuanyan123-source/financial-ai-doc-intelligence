@@ -42,7 +42,16 @@ class RetrievedLine:
 
 
 def tokenize(text: str) -> set[str]:
-    return {token for token in re.findall(r"[a-z0-9]+", text.lower()) if token not in STOP_WORDS}
+    tokens: set[str] = set()
+    for token in re.findall(r"[a-z0-9]+|[\u3400-\u4dbf\u4e00-\u9fff]+", text.lower()):
+        if token.isascii():
+            if token not in STOP_WORDS:
+                tokens.add(token)
+        elif len(token) == 1:
+            tokens.add(token)
+        else:
+            tokens.update(token[i:i + 2] for i in range(len(token) - 1))
+    return tokens
 
 
 def score_line(query_tokens: set[str], line: SourceLine) -> float:

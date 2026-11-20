@@ -45,6 +45,9 @@ mechanical; a reviewer still decides whether a wording change matters.
 
 ## Quick Start
 
+Use a Git checkout (not GitHub's Download ZIP) for the full preflight or the
+full unit test suite. The file manifest reads the list of Git-tracked paths.
+
 ```bash
 python tools/run_full_preflight.py --json reports/full_preflight_report.json --markdown reports/full_preflight_report.md
 ```
@@ -127,6 +130,19 @@ financial-ai-doc-intelligence/
     lesson_01.md
     multi_doc_eval_checklist.md
 ```
+
+## Evaluation Boundaries
+
+Chinese retrieval uses overlapping two-character tokens, plus tokens for
+standalone characters. This is a lexical baseline, not a benchmark of
+Chinese financial retrieval. The published numerical comparison still uses
+the small English fixture.
+
+For a case with no answer, use empty `expected_lines` and `expected_terms`.
+It passes only when the retriever returns no evidence. These cases contribute
+to the overall pass rate but not to answerable-case recall, coverage or source
+hit metrics. This does not supply an answer model or a calibrated abstention
+threshold.
 
 ## Roadmap
 

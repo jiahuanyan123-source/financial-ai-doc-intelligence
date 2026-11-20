@@ -20,10 +20,10 @@
       "sha256": "83ab39cea6c4f157d11ed8e518ba64728c8ff5455aecc69f63a39efb81e4fcf3"
     },
     {
-      "bytes": 8639,
+      "bytes": 9388,
       "path": "README.md",
       "role": "documentation",
-      "sha256": "d1a184e5c3e54dc8d098bea348c25cecbaf8c964012daf64df0e58e8c772782f"
+      "sha256": "4760a613020ca974cbbf11354b7311cd51f04118c8bb997a33e53d5ab6f46d2a"
     },
     {
       "bytes": 1190,
@@ -116,10 +116,10 @@
       "sha256": "489bfc4ca307a5a15a50e489259ab25bf5d2184c0ef73b8fb8e8cf0c2f21f58f"
     },
     {
-      "bytes": 2738,
+      "bytes": 2729,
       "path": "reports/embedding_public_readiness_report.json",
       "role": "evidence_report",
-      "sha256": "fc2fe19acd2c74d023e909b89b3b7e3693cae1bdc054e1bcc9f551cea5867dc3"
+      "sha256": "ff15b8ff8a18558742653099ba59eb37ad2e2c93ab5251e8fa324eb260849c66"
     },
     {
       "bytes": 2039,
@@ -218,10 +218,10 @@
       "sha256": "6f9897fbf170c671241f5ef29e639612b09ff7d6351f6aae3d634d01fe5b3265"
     },
     {
-      "bytes": 8772,
+      "bytes": 9264,
       "path": "src/finai_docintelligence/evaluation.py",
       "role": "source_code",
-      "sha256": "db53ac1419184dafaeb2f6f68d6cb9ec28f2baede79d92b56b5f55a51d8d018d"
+      "sha256": "6084efe67d3d7b99d165f334a982de8496c3698c7e62d70ce3a64d4ecef448e6"
     },
     {
       "bytes": 774,
@@ -236,10 +236,10 @@
       "sha256": "96edce72caec497f9162f147d83a3444b2455e48467c86eb36c7d9163249edca"
     },
     {
-      "bytes": 3338,
+      "bytes": 3623,
       "path": "src/finai_docintelligence/retrieval.py",
       "role": "source_code",
-      "sha256": "16371c9b2eb18f97dc2086d68e3a31525f9be965e65a2cbcc3f34bfbce174e60"
+      "sha256": "b1161b23d66273f8ece292ac4d46969fb814469252cc49ec423a169b02b50f23"
     },
     {
       "bytes": 1921,
@@ -266,10 +266,10 @@
       "sha256": "7389db05c3d9fd05b0ebb3ec37a51d894c78c9955357f9abb061f92ac3801223"
     },
     {
-      "bytes": 4691,
+      "bytes": 6622,
       "path": "tests/test_evaluation.py",
       "role": "test_code",
-      "sha256": "893a75a01fc5d531aecf4095361edf72823b71f83e1f84477f0036ce388b9873"
+      "sha256": "a106af48af5f298e9d0feb84d80b667d98efe28047cd0e09fc89cf439ebaa234"
     },
     {
       "bytes": 1916,
@@ -290,10 +290,10 @@
       "sha256": "3815963f0dad6c1e28e0a310a7e1027bd3f0846bb080a1b5ecf434413d05cc3f"
     },
     {
-      "bytes": 7840,
+      "bytes": 7862,
       "path": "tools/embedding_public_readiness_check.py",
       "role": "release_tooling",
-      "sha256": "e01836410f84f20a2f59e29122a000fee31253528ee39e49da52d58f2e01b6b5"
+      "sha256": "65a9e50224a7916c92c2a7dc96e549315304f1f019efd2f6e74de4117230b413"
     },
     {
       "bytes": 6359,

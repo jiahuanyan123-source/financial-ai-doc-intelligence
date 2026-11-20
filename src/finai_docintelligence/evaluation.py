@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Literal
@@ -30,9 +31,9 @@ class EvalCaseResult:
     source: str
     expected_lines: tuple[int, ...]
     retrieved_lines: tuple[RetrievedLine, ...]
-    line_recall: float
-    term_coverage: float
-    source_hit: float
+    line_recall: float | None
+    term_coverage: float | None
+    source_hit: float | None
     distractor_leak_rate: float
     passed: bool
 
@@ -97,7 +98,10 @@ def evaluate_case(
         raise ValueError(f"Unknown retriever mode: {retriever}")
     retrieved_line_numbers = {item.line_number for item in retrieved if item.source == case.source_label}
     expected_line_numbers = set(case.expected_lines)
-    line_recall = len(expected_line_numbers & retrieved_line_numbers) / len(expected_line_numbers)
+    line_recall = (
+        len(expected_line_numbers & retrieved_line_numbers) / len(expected_line_numbers)
+        if expected_line_numbers else None
+    )
 
     retrieved_text = " ".join(item.text.lower() for item in retrieved)
     matched_terms = sum(1 for term in case.expected_terms if term.lower() in retrieved_text)
@@ -106,7 +110,11 @@ def evaluate_case(
     forbidden = set(case.forbidden_sources)
     distractor_hits = sum(1 for item in retrieved if item.source in forbidden)
     distractor_leak_rate = distractor_hits / len(retrieved) if retrieved else 0.0
-    passed = line_recall >= 1.0 and term_coverage >= 0.8 and source_hit >= 1.0 and distractor_leak_rate == 0.0
+    if line_recall is None:
+        term_coverage = source_hit = None
+        passed = not retrieved
+    else:
+        passed = line_recall >= 1.0 and term_coverage >= 0.8 and source_hit >= 1.0 and distractor_leak_rate == 0.0
 
     return EvalCaseResult(
         case_id=case.case_id,
@@ -132,9 +140,9 @@ def evaluate_cases(
         evaluate_case(case, top_k=top_k, retriever=retriever, embed_texts=embed_texts) for case in load_cases(path)
     )
     count = len(results)
-    average_line_recall = sum(result.line_recall for result in results) / count if count else 0.0
-    average_term_coverage = sum(result.term_coverage for result in results) / count if count else 0.0
-    average_source_hit = sum(result.source_hit for result in results) / count if count else 0.0
+    average_line_recall = _mean(result.line_recall for result in results)
+    average_term_coverage = _mean(result.term_coverage for result in results)
+    average_source_hit = _mean(result.source_hit for result in results)
     average_distractor_leak_rate = sum(result.distractor_leak_rate for result in results) / count if count else 0.0
     pass_rate = sum(1 for result in results if result.passed) / count if count else 0.0
     return EvalReport(
@@ -146,6 +154,15 @@ def evaluate_cases(
         pass_rate=pass_rate,
         retriever=retriever,
     )
+
+
+def _mean(values: Iterable[float | None]) -> float:
+    present = [value for value in values if value is not None]
+    return sum(present) / len(present) if present else 0.0
+
+
+def _percent(value: float | None) -> str:
+    return "n/a" if value is None else f"{value:.2%}"
 
 
 def render_eval_markdown(report: EvalReport) -> str:
@@ -178,10 +195,10 @@ def render_eval_markdown(report: EvalReport) -> str:
                 "",
                 f"Question: {result.question}",
                 "",
-                f"- Expected lines: {', '.join(map(str, result.expected_lines))}",
-                f"- Line recall@k: {result.line_recall:.2%}",
-                f"- Expected-term coverage@k: {result.term_coverage:.2%}",
-                f"- Source document hit@k: {result.source_hit:.2%}",
+                f"- Expected lines: {', '.join(map(str, result.expected_lines)) or 'none; expect no retrieved evidence'}",
+                f"- Line recall@k: {_percent(result.line_recall)}",
+                f"- Expected-term coverage@k: {_percent(result.term_coverage)}",
+                f"- Source document hit@k: {_percent(result.source_hit)}",
                 f"- Distractor leak rate@k: {result.distractor_leak_rate:.2%}",
                 "",
                 "| Rank | Source | Line | Score | Text |",
