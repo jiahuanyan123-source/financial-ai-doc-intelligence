@@ -188,5 +188,6 @@
   "average_term_coverage": 0.9166666666666666,
   "average_source_hit": 1.0,
   "average_distractor_leak_rate": 0.05,
-  "pass_rate": 0.5
+  "pass_rate": 0.5,
+  "retriever": "source-prior"
 }

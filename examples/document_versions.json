@@ -1,0 +1,12 @@
+{
+  "before": [
+    {"id": "response_window", "text": "Respond within 3 business days."},
+    {"id": "draft_summary", "text": "Send a draft summary after review."},
+    {"id": "scope", "text": "This policy applies to sample requests."}
+  ],
+  "after": [
+    {"id": "response_window", "text": "Respond within 5 business days."},
+    {"id": "scope", "text": "This policy applies to sample requests."},
+    {"id": "review_step", "text": "A second reviewer checks the response."}
+  ]
+}

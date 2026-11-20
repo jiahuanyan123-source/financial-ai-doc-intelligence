@@ -3,8 +3,12 @@ from __future__ import annotations
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Literal
 
+from .embedding_retrieval import EmbeddingFunction, retrieve_lines_from_sources_with_embeddings
 from .retrieval import RetrievedLine, retrieve_lines, retrieve_lines_from_sources
+
+RetrieverMode = Literal["source-prior", "embedding"]
 
 
 @dataclass(frozen=True)
@@ -41,6 +45,7 @@ class EvalReport:
     average_source_hit: float
     average_distractor_leak_rate: float
     pass_rate: float
+    retriever: str = "source-prior"
 
 
 def load_cases(path: str | Path) -> list[EvalCase]:
@@ -69,11 +74,27 @@ def load_cases(path: str | Path) -> list[EvalCase]:
     return cases
 
 
-def evaluate_case(case: EvalCase, top_k: int = 5) -> EvalCaseResult:
-    if len(case.candidate_sources) > 1:
+def evaluate_case(
+    case: EvalCase,
+    top_k: int = 5,
+    retriever: RetrieverMode = "source-prior",
+    embed_texts: EmbeddingFunction | None = None,
+) -> EvalCaseResult:
+    if retriever == "embedding":
+        retrieved = tuple(
+            retrieve_lines_from_sources_with_embeddings(
+                case.candidate_sources,
+                case.question,
+                top_k=top_k,
+                embed_texts=embed_texts,
+            )
+        )
+    elif retriever == "source-prior" and len(case.candidate_sources) > 1:
         retrieved = tuple(retrieve_lines_from_sources(case.candidate_sources, case.question, top_k=top_k))
-    else:
+    elif retriever == "source-prior":
         retrieved = tuple(retrieve_lines(case.source_path, case.question, top_k=top_k, source_label=case.source_label))
+    else:
+        raise ValueError(f"Unknown retriever mode: {retriever}")
     retrieved_line_numbers = {item.line_number for item in retrieved if item.source == case.source_label}
     expected_line_numbers = set(case.expected_lines)
     line_recall = len(expected_line_numbers & retrieved_line_numbers) / len(expected_line_numbers)
@@ -101,8 +122,15 @@ def evaluate_case(case: EvalCase, top_k: int = 5) -> EvalCaseResult:
     )
 
 
-def evaluate_cases(path: str | Path, top_k: int = 5) -> EvalReport:
-    results = tuple(evaluate_case(case, top_k=top_k) for case in load_cases(path))
+def evaluate_cases(
+    path: str | Path,
+    top_k: int = 5,
+    retriever: RetrieverMode = "source-prior",
+    embed_texts: EmbeddingFunction | None = None,
+) -> EvalReport:
+    results = tuple(
+        evaluate_case(case, top_k=top_k, retriever=retriever, embed_texts=embed_texts) for case in load_cases(path)
+    )
     count = len(results)
     average_line_recall = sum(result.line_recall for result in results) / count if count else 0.0
     average_term_coverage = sum(result.term_coverage for result in results) / count if count else 0.0
@@ -116,12 +144,15 @@ def evaluate_cases(path: str | Path, top_k: int = 5) -> EvalReport:
         average_source_hit=average_source_hit,
         average_distractor_leak_rate=average_distractor_leak_rate,
         pass_rate=pass_rate,
+        retriever=retriever,
     )
 
 
 def render_eval_markdown(report: EvalReport) -> str:
     lines = [
         "# Financial RAG Eval Report",
+        "",
+        f"Retriever: `{report.retriever}`",
         "",
         "This deterministic baseline scores whether retrieval returns the expected source lines.",
         "It is a citation-control test, not an LLM quality claim.",
@@ -165,13 +196,22 @@ def render_eval_markdown(report: EvalReport) -> str:
         [
             "## Limitations",
             "",
-            "- This v0 uses token overlap with one-line neighbor expansion, not embeddings.",
+            _retriever_limitation(report.retriever),
             "- The sample documents are synthetic and public-safe.",
             "- Passing this eval does not prove answer quality; it only checks retrieval of expected evidence lines.",
             "",
         ]
     )
     return "\n".join(lines)
+
+
+def _retriever_limitation(retriever: str) -> str:
+    if retriever == "embedding":
+        return (
+            "- This embedding run uses a deterministic local hashing backend, "
+            "not a neural embedding model or external API."
+        )
+    return "- This v0 uses token overlap with one-line neighbor expansion, not embeddings."
 
 
 def write_eval_outputs(report: EvalReport, markdown_path: str | Path, json_path: str | Path | None = None) -> None:

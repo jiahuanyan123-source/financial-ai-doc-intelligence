@@ -30,7 +30,38 @@ metrics without hiding new failure modes.
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Source-prior token overlap | 87.50% | 91.67% | 100.00% | 5.00% | 50.00% |
 
-## Candidate Implementation
+## Completed Local Hashing Baseline
+
+The second implementation slice adds a deterministic local hashing-embedding
+backend. It has no model download, no external API, and no network dependency.
+On the fixed toy multi-document fixture, it produced:
+
+| Retriever | Line recall@k | Term coverage@k | Source hit@k | Distractor leak@k | Pass rate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Local hashing embedding, 128 dimensions | 100.00% | 100.00% | 100.00% | 0.00% | 100.00% |
+
+This is a dependency-free acceptance baseline for the embedding selector and
+comparison workflow. It is not a neural embedding model and should not be
+described as semantic retrieval quality.
+
+## Dimension Sensitivity Check
+
+The hashing baseline now includes a dimension-sensitivity report to avoid
+promoting a single cherry-picked configuration.
+
+| Dimensions | Line recall@k | Term coverage@k | Source hit@k | Distractor leak@k | Pass rate |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 32 | 50.00% | 66.67% | 100.00% | 25.00% | 0.00% |
+| 64 | 62.50% | 79.17% | 100.00% | 15.00% | 0.00% |
+| 128 | 100.00% | 100.00% | 100.00% | 0.00% | 100.00% |
+| 256 | 100.00% | 100.00% | 100.00% | 5.00% | 75.00% |
+
+Interpretation: the hashing backend is useful as a reproducible acceptance
+baseline, but it is dimension-sensitive on the toy fixture. The 128-dimension
+result should be described as a local deterministic comparison, not robust
+semantic retrieval quality.
+
+## Candidate Neural Implementation
 
 Start with a local sentence-embedding model only after keeping the deterministic
 baseline runnable without extra dependencies.
@@ -65,5 +96,16 @@ That failure is still useful evidence because it shows disciplined evaluation.
 
 ## Next Implementation Slice
 
-Add a small embedding retrieval module and a test that proves the new retriever
-can be selected without changing the deterministic default path.
+Completed first slice: add a small embedding retrieval module and tests proving
+the retriever can be selected without changing the deterministic default path.
+
+Completed second slice: add a deterministic hashing-embedding backend, CLI
+option, generated Markdown/JSON reports, CI command, and comparison-table
+metrics.
+
+Completed third slice: add a dimension-sensitivity command and report showing
+that the 128-dimension hashing win is not stable across all dimensions.
+
+Next slice: choose a local neural embedding backend, document the
+dependency/cache behavior, then run the same multi-document comparison and the
+sensitivity report before promoting any metric.

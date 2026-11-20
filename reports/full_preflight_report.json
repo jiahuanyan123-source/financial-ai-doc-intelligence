@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "repository": "financial-ai-doc-intelligence",
+  "generated_at_utc": "not_recorded_for_deterministic_report",
+  "step_count": 9,
+  "expected_step_count": 9,
+  "failure_count": 0,
+  "checks": [
+    {
+      "name": "unit_tests",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m unittest discover -s tests"
+    },
+    {
+      "name": "sample_analysis_report",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m finai_docintelligence analyze examples/sample_issuer_credit_note.md --out reports/sample_report.md --json reports/sample_report.json"
+    },
+    {
+      "name": "single_document_rag_eval",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m finai_docintelligence eval-rag examples/rag_eval_cases.json --out reports/rag_eval_report.md --json reports/rag_eval_report.json"
+    },
+    {
+      "name": "multi_document_rag_eval",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m finai_docintelligence eval-rag examples/multi_doc_rag_eval_cases.json --out reports/multi_doc_rag_eval_report.md --json reports/multi_doc_rag_eval_report.json"
+    },
+    {
+      "name": "hashing_embedding_eval",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m finai_docintelligence eval-rag examples/multi_doc_rag_eval_cases.json --retriever hashing-embedding --embedding-dimensions 128 --out reports/embedding_rag_eval_report.md --json reports/embedding_rag_eval_report.json"
+    },
+    {
+      "name": "embedding_dimension_sensitivity",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python -m finai_docintelligence embedding-sensitivity examples/multi_doc_rag_eval_cases.json --dimensions 32,64,128,256 --out reports/embedding_dimension_sensitivity.md --json reports/embedding_dimension_sensitivity.json"
+    },
+    {
+      "name": "embedding_public_readiness",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python tools/embedding_public_readiness_check.py --json reports/embedding_public_readiness_report.json --markdown reports/embedding_public_readiness_report.md"
+    },
+    {
+      "name": "repository_manifest",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python tools/repository_manifest.py --json reports/repository_manifest.json --markdown reports/repository_manifest.md"
+    },
+    {
+      "name": "repository_manifest_verify",
+      "status": "pass",
+      "return_code": 0,
+      "command": "python tools/repository_manifest.py --verify --json reports/repository_manifest.json"
+    }
+  ],
+  "summary": "All local Financial RAG release checks passed."
+}

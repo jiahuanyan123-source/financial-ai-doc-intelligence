@@ -1,5 +1,7 @@
 # Financial RAG Eval Report
 
+Retriever: `source-prior`
+
 This deterministic baseline scores whether retrieval returns the expected source lines.
 It is a citation-control test, not an LLM quality claim.
 

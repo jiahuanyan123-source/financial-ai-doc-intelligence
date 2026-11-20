@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "repository": "financial-rag-public-review-2026-11-20",
+  "check_count": 15,
+  "failure_count": 0,
+  "checks": [
+    {
+      "name": "file_exists:reports\\retrieval_comparison.md",
+      "status": "pass",
+      "detail": "required embedding evidence file"
+    },
+    {
+      "name": "file_exists:reports\\embedding_dimension_sensitivity.md",
+      "status": "pass",
+      "detail": "required embedding evidence file"
+    },
+    {
+      "name": "file_exists:reports\\embedding_dimension_sensitivity.json",
+      "status": "pass",
+      "detail": "required embedding evidence file"
+    },
+    {
+      "name": "file_exists:reports\\embedding_rag_eval_report.json",
+      "status": "pass",
+      "detail": "required embedding evidence file"
+    },
+    {
+      "name": "comparison_caveat:not_neural",
+      "status": "pass",
+      "detail": "retrieval comparison must not frame hashing as neural embedding quality"
+    },
+    {
+      "name": "comparison_caveat:dimension_sensitive",
+      "status": "pass",
+      "detail": "retrieval comparison must show that the hashing result depends on dimension choice"
+    },
+    {
+      "name": "comparison_caveat:no_semantic_quality_claim",
+      "status": "pass",
+      "detail": "retrieval comparison must avoid promoting the toy result as semantic retrieval quality"
+    },
+    {
+      "name": "sensitivity_caveat:not a neural embedding model",
+      "status": "pass",
+      "detail": "dimension sensitivity report must keep limitations visible"
+    },
+    {
+      "name": "sensitivity_caveat:fixture-specific",
+      "status": "pass",
+      "detail": "dimension sensitivity report must keep limitations visible"
+    },
+    {
+      "name": "sensitivity_caveat:does not prove answer quality",
+      "status": "pass",
+      "detail": "dimension sensitivity report must keep limitations visible"
+    },
+    {
+      "name": "sensitivity_dimensions",
+      "status": "pass",
+      "detail": "observed dimensions: [32, 64, 128, 256]"
+    },
+    {
+      "name": "dimension_dependence_visible",
+      "status": "pass",
+      "detail": "embedding pass_rate=1.0; sensitivity pass rates={32: 0.0, 64: 0.0, 128: 1.0, 256: 0.75}"
+    },
+    {
+      "name": "failed_dimensions_visible",
+      "status": "pass",
+      "detail": "worst_dimensions=[32, 64]"
+    },
+    {
+      "name": "non_128_leak_visible",
+      "status": "pass",
+      "detail": "distractor leak rates={32: 0.25, 64: 0.15000000000000002, 128: 0.0, 256: 0.05}"
+    },
+    {
+      "name": "embedding_not_promoted_to_production",
+      "status": "pass",
+      "detail": "report must explicitly avoid production-readiness claims"
+    }
+  ],
+  "summary": "Local hashing embedding evidence is bounded by sensitivity caveats."
+}

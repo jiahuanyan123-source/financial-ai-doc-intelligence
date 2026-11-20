@@ -1,0 +1,318 @@
+{
+  "excluded_paths": [
+    "reports/full_preflight_report.json",
+    "reports/full_preflight_report.md",
+    "reports/repository_manifest.json",
+    "reports/repository_manifest.md"
+  ],
+  "file_count": 50,
+  "files": [
+    {
+      "bytes": 1095,
+      "path": ".github/workflows/python-checks.yml",
+      "role": "ci_workflow",
+      "sha256": "8093e638b1916e411964373e39e4d7a3e2d13c5ac7f5ca95812a9cbcff2e10a4"
+    },
+    {
+      "bytes": 431,
+      "path": ".gitignore",
+      "role": "project_file",
+      "sha256": "83ab39cea6c4f157d11ed8e518ba64728c8ff5455aecc69f63a39efb81e4fcf3"
+    },
+    {
+      "bytes": 8639,
+      "path": "README.md",
+      "role": "documentation",
+      "sha256": "d1a184e5c3e54dc8d098bea348c25cecbaf8c964012daf64df0e58e8c772782f"
+    },
+    {
+      "bytes": 1190,
+      "path": "docs/document_version_review_demo.md",
+      "role": "documentation",
+      "sha256": "e8eef51efbebcbb00b59474036a598d0e83f0878927dca0d5688981dd6d55c7b"
+    },
+    {
+      "bytes": 4288,
+      "path": "docs/embedding_retrieval_comparison_plan.md",
+      "role": "documentation",
+      "sha256": "8b230cd15c3a5971b2b5e6cbd675b0a3ed2d9c0f75c0edd47d6f669bf6e3b853"
+    },
+    {
+      "bytes": 1735,
+      "path": "docs/lesson_01.md",
+      "role": "documentation",
+      "sha256": "801b27f32b288cf76005b9fda562e20dd8eccc17efb857c0fc960181b08eb591"
+    },
+    {
+      "bytes": 2134,
+      "path": "docs/multi_doc_eval_checklist.md",
+      "role": "documentation",
+      "sha256": "5bf56a28025e13a37d29dd951a82ea5b4d52090b9145ea4ad502973b2b6816a0"
+    },
+    {
+      "bytes": 482,
+      "path": "examples/document_versions.json",
+      "role": "example_input",
+      "sha256": "8660aece2d12237b46f4fedd5e2b1b3cdef4da4412179a20c3b9734b80b9b498"
+    },
+    {
+      "bytes": 1040,
+      "path": "examples/multi_doc/city_utility_distractor.md",
+      "role": "example_input",
+      "sha256": "ae668b084b3a4165b12cbbdf1b2e7201aa73c3d987ba77a745c4c6ad7f7c2b6e"
+    },
+    {
+      "bytes": 1013,
+      "path": "examples/multi_doc/east_bay_peer.md",
+      "role": "example_input",
+      "sha256": "9656906b236c69dfa8ea7747552e6155052b752240d3daafc2f4b8deb9718c22"
+    },
+    {
+      "bytes": 1212,
+      "path": "examples/multi_doc/north_river_target.md",
+      "role": "example_input",
+      "sha256": "e4e003e0476a318962767257f21a8b9e29bfebddc0cb7f775203d3c0f5bbed04"
+    },
+    {
+      "bytes": 2049,
+      "path": "examples/multi_doc_rag_eval_cases.json",
+      "role": "example_input",
+      "sha256": "7d3b24d41ec586aeface89848505461df61160533899f1c635c2106eb0fa82d1"
+    },
+    {
+      "bytes": 1094,
+      "path": "examples/rag_eval_cases.json",
+      "role": "example_input",
+      "sha256": "7f555e1f37bf510cb492bd7c1b56555090f9701cbef2ac9a29f982f6402237f0"
+    },
+    {
+      "bytes": 1185,
+      "path": "examples/sample_issuer_credit_note.md",
+      "role": "example_input",
+      "sha256": "d091e32d156218ed47bc1b41dfe95d3177ef766764b1d6e2e83edaf1c10b5666"
+    },
+    {
+      "bytes": 319,
+      "path": "pyproject.toml",
+      "role": "project_file",
+      "sha256": "2a3c9ceb704d00e692c0f647dc7a791b2d3053acc85b0e18e2980ac5684d2777"
+    },
+    {
+      "bytes": 1,
+      "path": "reports/.gitkeep",
+      "role": "evidence_report",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 1106,
+      "path": "reports/embedding_dimension_sensitivity.json",
+      "role": "evidence_report",
+      "sha256": "42add3d87d2f8b779298ebd66613d4a5662da273c8305832fcc92a4c5a73c81a"
+    },
+    {
+      "bytes": 1247,
+      "path": "reports/embedding_dimension_sensitivity.md",
+      "role": "evidence_report",
+      "sha256": "489bfc4ca307a5a15a50e489259ab25bf5d2184c0ef73b8fb8e8cf0c2f21f58f"
+    },
+    {
+      "bytes": 2738,
+      "path": "reports/embedding_public_readiness_report.json",
+      "role": "evidence_report",
+      "sha256": "fc2fe19acd2c74d023e909b89b3b7e3693cae1bdc054e1bcc9f551cea5867dc3"
+    },
+    {
+      "bytes": 2039,
+      "path": "reports/embedding_public_readiness_report.md",
+      "role": "evidence_report",
+      "sha256": "6c202e773926707cd1503085cbdf1d3877977a729f4d5dde9bfb201fd7e3c733"
+    },
+    {
+      "bytes": 6124,
+      "path": "reports/embedding_rag_eval_report.json",
+      "role": "evidence_report",
+      "sha256": "a463c7ab4d14c7595c2e9db9d6380eb10d35c56a872a929ea8a17837928c801d"
+    },
+    {
+      "bytes": 4094,
+      "path": "reports/embedding_rag_eval_report.md",
+      "role": "evidence_report",
+      "sha256": "065cac234fcc6153e4d7d98d29d91927b5a93fd231956291e7e833a05136847e"
+    },
+    {
+      "bytes": 5912,
+      "path": "reports/multi_doc_rag_eval_report.json",
+      "role": "evidence_report",
+      "sha256": "69cb48fa57563e2198e4ec7c2b76647248fab67f56d56338eaef8dffb0271e52"
+    },
+    {
+      "bytes": 4027,
+      "path": "reports/multi_doc_rag_eval_report.md",
+      "role": "evidence_report",
+      "sha256": "6a274e57c7892c20363658724f17fbbc1cdb7ddf3b8726fb412e08b5c13caaac"
+    },
+    {
+      "bytes": 5070,
+      "path": "reports/rag_eval_report.json",
+      "role": "evidence_report",
+      "sha256": "c42634ca3b6807ce60472c74541869729f7cbcbb4cce39ba96ab50ac7a52efb1"
+    },
+    {
+      "bytes": 3558,
+      "path": "reports/rag_eval_report.md",
+      "role": "evidence_report",
+      "sha256": "3355e47c0ad2a4c9f9eb31001c8cd1bf4461221dc1cb95e28a85a784ea72e99c"
+    },
+    {
+      "bytes": 3596,
+      "path": "reports/retrieval_comparison.md",
+      "role": "evidence_report",
+      "sha256": "645ae62f4995caa9a52eb7ec1f7293c9134217f7c24b961aa0264971e0d2ab8d"
+    },
+    {
+      "bytes": 4051,
+      "path": "reports/sample_report.json",
+      "role": "evidence_report",
+      "sha256": "005ec2dba5df6631dc3eda06e72cd8cb7b2879d50c110bda9283acc544d63836"
+    },
+    {
+      "bytes": 2069,
+      "path": "reports/sample_report.md",
+      "role": "evidence_report",
+      "sha256": "d3f57328503afb8a8a9af98b934cde31680c7da52fd71699dc70cf3732b7715b"
+    },
+    {
+      "bytes": 80,
+      "path": "src/finai_docintelligence/__init__.py",
+      "role": "source_code",
+      "sha256": "5dab8374f88761ee41c0591a694560f3d68d8bc4ecdfcdbcb8ec1b878e2149d5"
+    },
+    {
+      "bytes": 81,
+      "path": "src/finai_docintelligence/__main__.py",
+      "role": "source_code",
+      "sha256": "2cdd23d4f5cd6c3b3e4cb690ad16d560637767b9ca5b2a3cf129fcc0a5ebc82b"
+    },
+    {
+      "bytes": 9712,
+      "path": "src/finai_docintelligence/analyzer.py",
+      "role": "source_code",
+      "sha256": "54ed9608e009928024b6c87c0b8867286907ee2f7c60626ae3ac86242203a5f7"
+    },
+    {
+      "bytes": 5611,
+      "path": "src/finai_docintelligence/cli.py",
+      "role": "source_code",
+      "sha256": "52fe8998e3dfd7b0c1c99ff76fd4ed0de1e2e859836fda30a01d166b12534a92"
+    },
+    {
+      "bytes": 3958,
+      "path": "src/finai_docintelligence/embedding_retrieval.py",
+      "role": "source_code",
+      "sha256": "657f7c19fb9570c3d8433cecf94425109fa02348136b9f23a446b9b730a62dab"
+    },
+    {
+      "bytes": 5513,
+      "path": "src/finai_docintelligence/embedding_sensitivity.py",
+      "role": "source_code",
+      "sha256": "6f9897fbf170c671241f5ef29e639612b09ff7d6351f6aae3d634d01fe5b3265"
+    },
+    {
+      "bytes": 8772,
+      "path": "src/finai_docintelligence/evaluation.py",
+      "role": "source_code",
+      "sha256": "db53ac1419184dafaeb2f6f68d6cb9ec28f2baede79d92b56b5f55a51d8d018d"
+    },
+    {
+      "bytes": 774,
+      "path": "src/finai_docintelligence/model.py",
+      "role": "source_code",
+      "sha256": "23ca8a68a6a76ffba2fe552753bd21460eb2684ba1d0e7f8a79f69ae7f546476"
+    },
+    {
+      "bytes": 3036,
+      "path": "src/finai_docintelligence/report.py",
+      "role": "source_code",
+      "sha256": "96edce72caec497f9162f147d83a3444b2455e48467c86eb36c7d9163249edca"
+    },
+    {
+      "bytes": 3338,
+      "path": "src/finai_docintelligence/retrieval.py",
+      "role": "source_code",
+      "sha256": "16371c9b2eb18f97dc2086d68e3a31525f9be965e65a2cbcc3f34bfbce174e60"
+    },
+    {
+      "bytes": 1921,
+      "path": "tests/test_analyzer.py",
+      "role": "test_code",
+      "sha256": "6de169ff7f20cdee3f51bb56ff2b35b75a599a5dde1640069d35cda433e6166b"
+    },
+    {
+      "bytes": 1485,
+      "path": "tests/test_document_version_comparison.py",
+      "role": "test_code",
+      "sha256": "78d0ca4a5852804f279704dea3afa638db9625cd5ed45abf0d01201dbbad508c"
+    },
+    {
+      "bytes": 2965,
+      "path": "tests/test_embedding_public_readiness.py",
+      "role": "test_code",
+      "sha256": "8a1c6fe8b60ead7c8a440af8a39ac12b0975572f4a84c8b0935a2e8ca11bff93"
+    },
+    {
+      "bytes": 1642,
+      "path": "tests/test_embedding_sensitivity.py",
+      "role": "test_code",
+      "sha256": "7389db05c3d9fd05b0ebb3ec37a51d894c78c9955357f9abb061f92ac3801223"
+    },
+    {
+      "bytes": 4691,
+      "path": "tests/test_evaluation.py",
+      "role": "test_code",
+      "sha256": "893a75a01fc5d531aecf4095361edf72823b71f83e1f84477f0036ce388b9873"
+    },
+    {
+      "bytes": 1916,
+      "path": "tests/test_full_preflight.py",
+      "role": "test_code",
+      "sha256": "e92d0fc291b275e7c828b006314c3147d485315f762c5886f6a15e9a4efb1755"
+    },
+    {
+      "bytes": 2536,
+      "path": "tests/test_repository_manifest.py",
+      "role": "test_code",
+      "sha256": "726c50c4c591413d98a35b0dfea19b879d5c45de22ee00507e2dce9f5fd9bd56"
+    },
+    {
+      "bytes": 1961,
+      "path": "tools/compare_document_versions.py",
+      "role": "release_tooling",
+      "sha256": "3815963f0dad6c1e28e0a310a7e1027bd3f0846bb080a1b5ecf434413d05cc3f"
+    },
+    {
+      "bytes": 7840,
+      "path": "tools/embedding_public_readiness_check.py",
+      "role": "release_tooling",
+      "sha256": "e01836410f84f20a2f59e29122a000fee31253528ee39e49da52d58f2e01b6b5"
+    },
+    {
+      "bytes": 6359,
+      "path": "tools/repository_manifest.py",
+      "role": "release_tooling",
+      "sha256": "e7fdeac98783bb5358768dd901e8bd7d5a56ce9b7d0ac3e718f86c4518a1fe5c"
+    },
+    {
+      "bytes": 7707,
+      "path": "tools/run_full_preflight.py",
+      "role": "release_tooling",
+      "sha256": "80935b1b421ad1cd8453fc16a0633adbb8892a69a585bc3c83ad42d712fc4f03"
+    }
+  ],
+  "limitations": [
+    "This manifest fingerprints tracked repository files only.",
+    "The manifest excludes mutable release-gate outputs to avoid self-referential hashes.",
+    "File hashes prove publication package identity only; they do not prove production RAG quality or credit judgment quality."
+  ],
+  "manifest_version": 1,
+  "project": "financial-ai-doc-intelligence"
+}
